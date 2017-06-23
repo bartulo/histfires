@@ -1,0 +1,36 @@
+<html>
+{% load leaflet_tags %}
+    <head>
+        <style media="screen">
+             #main { width:100%; height:100% }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        {% leaflet_js %}
+        {% leaflet_css %}
+    </head>
+    <body>
+        {% leaflet_map "main" callback="main_map_init" %}
+
+        <script type="text/javascript">
+            function main_map_init (map, options) {
+
+                function onEachFeature(feature, layer){
+                    layer.on('click', function(e) {
+                        window.open('/web/' + e.target.feature.id, "_self")
+                    });
+                }
+
+                var dataurl = '{% url "data" %}';
+                    // Download GeoJSON via Ajax
+                $.getJSON(dataurl, function (data) {
+                    // Add GeoJSON layer
+                    console.log(data);
+                    L.geoJson(data, {
+                        onEachFeature: onEachFeature
+                    }).addTo(map);
+                });
+
+            }
+        </script>
+    </body>
+</html>

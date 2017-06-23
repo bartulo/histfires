@@ -1,0 +1,18 @@
+<GDAL_WMS>
+<Service name="WMS">
+<ServerUrl>http://www.ign.es/wms-inspire/pnoa-ma</ServerUrl>
+<Layers>OI.OrthoimageCoverage</Layers>
+<ImageFormat>image/jpeg</ImageFormat>
+<SRS>EPSG:25830</SRS>
+</Service>
+<DataWindow>
+<UpperLeftX>-1099673.713793886</UpperLeftX>
+<UpperLeftY>4998012.359900884</UpperLeftY>
+<LowerRightX>1295248.9457834428</LowerRightX>
+<LowerRightY>2986435.242554414</LowerRightY>
+<SizeX>9579684</SizeX>
+<SizeY>8046308</SizeY>
+</DataWindow>
+<Cache/>
+</GDAL_WMS>
+
